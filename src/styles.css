@@ -96,8 +96,84 @@ body {
 
 .cta-bg {
   background-image:
-    radial-gradient(ellipse at 50% 50%, rgba(170, 255, 0, 0.06) 0%, transparent 65%),
+    radial-gradient(ellipse at 50% 30%, rgba(170, 255, 0, 0.09) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 80%, rgba(170, 255, 0, 0.03) 0%, transparent 50%),
     linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: auto, 60px 60px, 60px 60px;
+  background-size: auto, auto, 60px 60px, 60px 60px;
+}
+
+/* ─── Hero Atmosphere — Glow Layer CSS ──────────────────────────────────────
+   Animações em will-change:transform,opacity → GPU composited, sem reflow.
+   Ciclos longos (9s e 13s) para movimento orgânico e não-mecânico.
+   Dois glows em fase diferente criam sensação de sistema vivo e profundidade.
+─────────────────────────────────────────────────────────────────────────── */
+
+@keyframes hero-glow-primary {
+  0%   { opacity: 0.55; transform: scale(1)    translate(0,    0);    }
+  30%  { opacity: 0.95; transform: scale(1.07) translate(-1.5%, 2%);  }
+  60%  { opacity: 0.70; transform: scale(0.97) translate(2%,  -1.5%); }
+  100% { opacity: 0.55; transform: scale(1)    translate(0,    0);    }
+}
+
+@keyframes hero-glow-secondary {
+  0%   { opacity: 0.45; transform: scale(1)    translate(0,    0);   }
+  50%  { opacity: 0.85; transform: scale(1.10) translate(3%,  -3%);  }
+  100% { opacity: 0.45; transform: scale(1)    translate(0,    0);   }
+}
+
+@keyframes hero-glow-floor {
+  0%   { opacity: 0.4; }
+  55%  { opacity: 0.9; }
+  100% { opacity: 0.4; }
+}
+
+.hero-glow-primary {
+  animation: hero-glow-primary 9s ease-in-out infinite;
+}
+
+.hero-glow-secondary {
+  animation: hero-glow-secondary 13s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+.hero-glow-floor {
+  animation: hero-glow-floor 11s ease-in-out infinite;
+  animation-delay: -6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow-primary,
+  .hero-glow-secondary,
+  .hero-glow-floor {
+    animation: none;
+    opacity: 0.65;
+  }
+}
+
+/* Legado — mantido para compatibilidade com código não migrado */
+@keyframes noise-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.2); }
+}
+
+@keyframes noise-scan {
+  0% { top: 0%; opacity: 0; }
+  6% { opacity: 0.7; }
+  94% { opacity: 0.7; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.noise-dot {
+  animation: noise-pulse 3.5s ease-in-out infinite;
+}
+
+.noise-scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(170, 255, 0, 0.22) 50%, transparent 100%);
+  animation: noise-scan 6s ease-in-out infinite;
+  pointer-events: none;
 }

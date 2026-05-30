@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef, type ReactNode } from "react";
+import { HeroGlowLayer } from "./hero/HeroGlowLayer";
+import { InteractiveNoiseBackground } from "./InteractiveNoiseBackground";
 import {
   Map,
   Zap,
@@ -16,8 +18,7 @@ import {
   Plus,
 } from "lucide-react";
 
-// TODO: substituir pelo número real
-const NUMERO_WHATSAPP = "5500000000000";
+const NUMERO_WHATSAPP = "5511995386342";
 const WHATSAPP_URL = `https://wa.me/${NUMERO_WHATSAPP}?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Noise%20Labs%20e%20gostaria%20de%20saber%20mais.`;
 
 function useReveal() {
@@ -128,55 +129,82 @@ function Hero() {
     <section
       ref={ref}
       id="inicio"
-      className="hero-bg min-h-screen flex items-center relative overflow-hidden pt-24"
+      className="relative min-h-screen flex items-center overflow-hidden bg-[#0A0A0A] pt-20 pb-10 lg:pt-24 lg:pb-14"
     >
-      <div className="max-w-[1200px] mx-auto px-5 md:px-10 w-full">
-        <div className="max-w-[760px]">
-          <div className="reveal inline-flex items-center gap-2 border border-[rgba(170,255,0,0.3)] text-[#AAFF00] bg-[rgba(170,255,0,0.05)] rounded-full px-4 py-1.5 text-[12px] font-medium uppercase tracking-[0.1em] mb-7">
-            Agência de Marketing Digital
+      {/* ── Camadas atmosféricas (absolute, atrás do conteúdo) ── */}
+      <HeroGlowLayer />
+      <InteractiveNoiseBackground intensity="medium" />
+
+      {/* ── Conteúdo ── */}
+      <div className="relative z-10 max-w-[1200px] mx-auto px-5 md:px-10 w-full">
+        <div className="max-w-[720px]">
+
+          {/* Indicador de posicionamento */}
+          <div className="reveal flex items-center gap-3 mb-5">
+            <span className="h-px w-6 bg-[#AAFF00] opacity-60 flex-shrink-0" />
+            <span className="text-[11px] font-[Inter] font-medium uppercase tracking-[0.18em] text-[#AAFF00] opacity-75">
+              Para empresas que precisam ser escolhidas antes da concorrência
+            </span>
           </div>
 
-          <h1 className="reveal font-[Space_Grotesk] font-bold text-white text-[40px] sm:text-[56px] md:text-[72px] lg:text-[80px] leading-[1.05] tracking-[-0.02em] mb-7">
+          {/* Headline */}
+          <h1 className="reveal font-[Space_Grotesk] font-bold text-white text-[30px] sm:text-[40px] md:text-[48px] lg:text-[54px] xl:text-[60px] leading-[1.08] tracking-[-0.025em] mb-5">
             Enquanto você lê isso, alguém está procurando exatamente o que você vende — e encontrando seu{" "}
             <span className="text-[#AAFF00]">concorrente</span>.
           </h1>
 
-          <p className="reveal font-[Inter] text-[16px] md:text-[20px] leading-[1.6] text-[#9CA3AF] max-w-[560px] mb-10">
-            A Noise Labs cria a presença digital que faz seu negócio aparecer, gerar confiança e transformar
-            visitantes em clientes. Todos os dias — sem depender de indicação.
+          {/* Subtítulo */}
+          <p className="reveal font-[Inter] text-[15px] md:text-[17px] leading-[1.6] text-[#9CA3AF] max-w-[540px] mb-4">
+            A Noise Labs ajuda negócios locais a construir uma presença online mais profissional, confiável
+            e preparada para transformar pesquisas e visitas em oportunidades reais de venda.
           </p>
 
-          <div className="reveal flex flex-wrap items-center gap-4">
+          {/* Urgência racional */}
+          <p className="reveal font-[Inter] text-[13px] text-[#5A5A5A] leading-[1.55] max-w-[480px] mb-6">
+            Enquanto sua presença não transmite confiança, parte da decisão do cliente já aconteceu — antes de ele ligar.
+          </p>
+
+          {/* CTAs */}
+          <div className="reveal flex flex-wrap items-center gap-3 mb-3">
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#AAFF00] text-black font-semibold px-7 py-4 rounded-[10px] text-[16px] hover:bg-[#C5FF3A] hover:shadow-[0_0_24px_rgba(170,255,0,0.35)] transition-all duration-150 inline-flex items-center gap-2 font-[Space_Grotesk]"
+              className="bg-[#AAFF00] text-black font-semibold px-6 py-3.5 rounded-[10px] text-[15px] hover:bg-[#C5FF3A] hover:shadow-[0_0_28px_rgba(170,255,0,0.40)] transition-all duration-150 inline-flex items-center gap-2 font-[Space_Grotesk]"
             >
               Quero mais clientes agora →
             </a>
             <a
               href="#como-funciona"
-              className="text-[#9CA3AF] hover:text-white text-[15px] font-medium transition-colors font-[Inter]"
+              className="text-[#9CA3AF] hover:text-white text-[14px] font-medium transition-colors font-[Inter]"
             >
               Ver como funciona →
             </a>
           </div>
 
-          <p className="reveal mt-3 mb-12 text-[13px] text-[#6B7280] font-[Inter]">
+          <p className="reveal text-[12px] text-[#6B7280] font-[Inter] mb-6">
             Resposta em até 1 hora nos dias úteis. Sem compromisso.
+            <span className="ml-3 text-[#AAFF00]/60">→</span>
+            <span className="ml-1 italic">Antes de decidir, você enxerga o caminho.</span>
           </p>
 
-          <div className="reveal flex flex-wrap gap-3">
-            {["✦ Sites estratégicos", "✦ Tráfego pago", "✦ Conversão real"].map((c) => (
+          {/* Pills compactas */}
+          <div className="reveal flex flex-wrap gap-2">
+            {["✦ Sites profissionais", "✦ Anúncios locais", "✦ Presença nas redes"].map((c) => (
               <span
                 key={c}
-                className="border border-[rgba(255,255,255,0.08)] text-[#888888] bg-[#1A1A1A] rounded-full px-4 py-1.5 text-[13px] font-medium font-[Inter]"
+                className="border border-[rgba(255,255,255,0.07)] text-[#666666] bg-[rgba(26,26,26,0.6)] rounded-full px-3.5 py-1 text-[12px] font-medium font-[Inter]"
               >
                 {c}
               </span>
             ))}
           </div>
+
+          {/* Localização */}
+          <p className="reveal mt-4 text-[11px] font-[Inter] text-[#3E3E3E] uppercase tracking-[0.13em]">
+            Atendemos negócios locais em São Paulo e região.
+          </p>
+
         </div>
       </div>
     </section>
@@ -199,23 +227,23 @@ function Problema() {
     },
   ];
   return (
-    <Section id="problema" className="py-20 md:py-[120px] bg-[#0F0F0F]">
+    <Section id="problema" className="py-10 md:py-16 bg-[#0F0F0F]">
       <div className="max-w-[1200px] mx-auto px-5 md:px-10">
         <Label>O Problema</Label>
         <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] max-w-[680px] mb-6">
           Todo dia sem presença digital é um cliente que vai para o{" "}
           <span className="text-[#AAFF00]">concorrente</span>.
         </h2>
-        <p className="reveal font-[Inter] text-[18px] text-[#9CA3AF] max-w-[560px] mb-16 leading-[1.6]">
+        <p className="reveal font-[Inter] text-[18px] text-[#9CA3AF] max-w-[560px] mb-8 leading-[1.6]">
           Você não perde clientes porque seu serviço é pior. Você perde porque, na hora em que eles pesquisam,
           seu concorrente aparece — e você não.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8">
           {cards.map((c) => (
             <div
               key={c.quote}
-              className="reveal bg-[#161616] border border-[rgba(255,255,255,0.06)] rounded-[12px] p-8 hover:border-[rgba(170,255,0,0.20)] hover:shadow-[0_8px_32px_rgba(170,255,0,0.06)] hover:scale-[1.01] transition-all duration-200"
+              className="reveal bg-[#161616] border border-[rgba(255,255,255,0.06)] rounded-[12px] p-6 md:p-8 hover:border-[rgba(170,255,0,0.20)] hover:shadow-[0_8px_32px_rgba(170,255,0,0.06)] hover:scale-[1.01] transition-all duration-200"
             >
               <div className="w-2 h-2 rounded-full bg-[#AAFF00] mb-6" />
               <p className="font-[Space_Grotesk] font-medium text-[16px] text-white mb-3 leading-[1.45]">
@@ -243,8 +271,8 @@ function Solucao() {
     },
     {
       Icon: Zap,
-      title: "Execução com padrão premium",
-      text: "Design, copy, estrutura e performance no mesmo nível de grandes marcas. Porque o visual da sua empresa online comunica o preço que você pode cobrar.",
+      title: "Visual que aumenta a percepção de valor",
+      text: "Design, copy e estrutura que fazem sua empresa parecer séria, confiável e preparada para atender novos clientes. Porque o visual online comunica o preço que você pode cobrar.",
     },
     {
       Icon: TrendingUp,
@@ -253,13 +281,14 @@ function Solucao() {
     },
   ];
   return (
-    <Section id="solucao" className="py-20 md:py-[120px] bg-[#0A0A0A] border-t border-[rgba(255,255,255,0.04)]">
+    <Section id="solucao" className="py-10 md:py-16 bg-[#0A0A0A] border-t border-[rgba(255,255,255,0.04)]">
       <div className="max-w-[1200px] mx-auto px-5 md:px-10">
         <Label>A Solução</Label>
         <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] max-w-[760px] mb-6">
-          Uma agência que pensa como <span className="text-[#AAFF00]">sócio</span>, não como fornecedor.
+          Não entregamos apenas uma página bonita. Construímos uma presença online pensada para fazer sua empresa{" "}
+          <span className="text-[#AAFF00]">ser escolhida</span>.
         </h2>
-        <p className="reveal font-[Inter] text-[18px] text-[#9CA3AF] max-w-[640px] mb-16 leading-[1.6]">
+        <p className="reveal font-[Inter] text-[18px] text-[#9CA3AF] max-w-[640px] mb-8 leading-[1.6]">
           A maioria das agências começa pela execução: pega o template, monta o site, publica e cobra. A Noise
           Labs começa pela estratégia: entende o seu negócio, o seu cliente, o que bloqueia a conversão — e só
           então executa.
@@ -267,12 +296,23 @@ function Solucao() {
 
         <div className="reveal flex flex-col md:flex-row gap-px bg-[rgba(255,255,255,0.04)] rounded-[16px] overflow-hidden">
           {pilares.map(({ Icon, title, text }) => (
-            <div key={title} className="bg-[#0A0A0A] flex-1 p-10 flex flex-col gap-4">
+            <div key={title} className="bg-[#0A0A0A] flex-1 p-7 flex flex-col gap-3">
               <Icon size={32} strokeWidth={1.5} color="#AAFF00" />
               <h3 className="font-[Space_Grotesk] font-medium text-[20px] text-white">{title}</h3>
               <p className="font-[Inter] text-[15px] text-[#9CA3AF] leading-[1.65]">{text}</p>
             </div>
           ))}
+        </div>
+
+        <div className="reveal mt-8 text-center">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-[Inter] text-[14px] font-medium text-[#9CA3AF] hover:text-[#AAFF00] transition-colors duration-150"
+          >
+            Quero entender o melhor caminho para minha empresa →
+          </a>
         </div>
       </div>
     </Section>
@@ -283,51 +323,64 @@ function ComoFunciona() {
   const steps = [
     {
       n: "01",
-      title: "Diagnóstico",
+      title: "Entendemos o que está custando clientes",
       text: "Analisamos sua presença digital atual (ou a ausência dela), seu mercado e seus concorrentes. Você recebe um diagnóstico honesto — não uma proposta de vendas disfarçada.",
     },
     {
       n: "02",
-      title: "Estratégia",
-      text: "Com base no diagnóstico, definimos o caminho mais direto entre você e seus clientes: quais canais, qual comunicação, qual estrutura.",
+      title: "O caminho mais direto até o cliente",
+      text: "Com base no diagnóstico, definimos o que vai funcionar para o seu negócio: quais canais, qual comunicação, qual presença online vai gerar contato real.",
     },
     {
       n: "03",
-      title: "Execução",
-      text: "Site, landing page, anúncios, social media — tudo criado com base na estratégia, não em templates genéricos. Você aprova. Nós entregamos.",
+      title: "Construímos — você aprova cada etapa",
+      text: "Site, página, anúncios, presença nas redes — tudo criado com base na estratégia, não em templates genéricos. Você vê antes de publicar.",
     },
     {
       n: "04",
-      title: "Crescimento",
+      title: "Ajustamos o que funciona, cortamos o que não traz resultado",
       text: "Monitoramos, otimizamos e escalamos. À medida que os resultados aparecem, ajustamos o que funciona e eliminamos o que não converte.",
     },
   ];
   return (
-    <Section id="como-funciona" className="py-20 md:py-[120px] bg-[#111111]">
+    <Section id="como-funciona" className="py-10 md:py-16 bg-[#111111]">
       <div className="max-w-[1200px] mx-auto px-5 md:px-10">
         <Label>Processo</Label>
-        <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] max-w-[720px] mb-16">
-          Do diagnóstico ao crescimento. Quatro passos.
+        <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] max-w-[720px] mb-8">
+          Como transformamos a presença da sua empresa em contato real.
         </h2>
 
         <div className="flex flex-col md:flex-row items-stretch gap-0 relative">
           {steps.map((s, i) => (
             <div key={s.n} className="flex-1 p-6 md:p-8 reveal relative">
-              <div className="font-[Space_Mono] text-[72px] text-[#AAFF00] opacity-20 leading-none mb-4">
+              <div className="font-[Space_Mono] text-[48px] text-[#AAFF00] opacity-30 leading-none mb-3">
                 {s.n}
               </div>
               <h3 className="font-[Space_Grotesk] font-medium text-[20px] text-white mb-2">{s.title}</h3>
               <p className="font-[Inter] text-[14px] text-[#6B7280] leading-[1.6]">{s.text}</p>
               {i < steps.length - 1 && (
-                <div className="hidden md:block absolute top-[60px] right-0 w-px h-12 bg-[rgba(170,255,0,0.20)]" />
+                <>
+                  <div className="hidden md:block absolute top-1/2 -translate-y-1/2 right-0 w-px h-16 bg-gradient-to-b from-transparent via-[rgba(170,255,0,0.25)] to-transparent" />
+                  <div className="md:hidden w-full h-px bg-[rgba(255,255,255,0.05)] mt-6" />
+                </>
               )}
             </div>
           ))}
         </div>
 
-        <p className="reveal font-[Inter] text-[16px] text-[#6B7280] text-center mt-16">
-          Você conduz seu negócio. Nós conduzimos sua presença digital. Simples assim.
+        <p className="reveal font-[Inter] text-[16px] text-[#6B7280] text-center mt-8">
+          Você cuida do que vende. Nós cuidamos de fazer as pessoas certas encontrarem — e escolherem — sua empresa.
         </p>
+        <div className="reveal mt-6 text-center">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-[Inter] text-[14px] font-medium text-[#9CA3AF] hover:text-[#AAFF00] transition-colors duration-150"
+          >
+            Pedir um diagnóstico inicial →
+          </a>
+        </div>
       </div>
     </Section>
   );
@@ -335,30 +388,30 @@ function ComoFunciona() {
 
 function Servicos() {
   const services = [
-    { Icon: Monitor, title: "Sites Profissionais", text: "Criamos sites que representam sua empresa com autoridade, carregam rápido no celular e têm um caminho claro para o visitante entrar em contato. Não sites bonitos — sites que convertem." },
-    { Icon: Target, title: "Landing Pages de Conversão", text: "Quando o objetivo é gerar leads, agendamentos ou pedidos, uma landing page especializada converte muito mais do que um site genérico. Desenhamos para uma ação específica." },
-    { Icon: BarChart3, title: "Tráfego Pago", text: "Google Ads e Meta Ads gerenciados com foco em custo por cliente adquirido — não em impressões. Cada real investido tem um destino claro." },
-    { Icon: MessageSquare, title: "Social Media", text: "Conteúdo que posiciona, gera autoridade e mantém sua marca relevante para quem ainda não comprou mas está considerando. Feito para construir relacionamento com consistência." },
-    { Icon: Lightbulb, title: "Estratégia Digital", text: "Um diagnóstico honesto do que está faltando e um plano claro para corrigir — sem desperdício de dinheiro em ações que não convertem." },
-    { Icon: Star, title: "Posicionamento e Identidade", text: "Identidade visual, linguagem de marca e posicionamento que justificam o preço que você pratica e atraem o cliente que você quer." },
+    { Icon: Monitor, title: "Sites profissionais que geram contato", text: "Criamos sites que representam sua empresa com autoridade, carregam rápido no celular e têm um caminho claro para o visitante entrar em contato. Não sites bonitos — sites que convertem." },
+    { Icon: Target, title: "Páginas para campanhas e WhatsApp", text: "Quando o objetivo é gerar agendamentos, pedidos ou mensagens diretas, uma página focada em uma única ação converte muito mais do que um site genérico. Desenhamos para esse resultado." },
+    { Icon: BarChart3, title: "Anúncios com foco em clientes locais", text: "Google Ads e Meta Ads gerenciados com foco em custo por cliente adquirido — não em impressões. Cada real investido tem um destino claro: trazer pessoas que querem o que você vende." },
+    { Icon: MessageSquare, title: "Presença consistente nas redes", text: "Conteúdo que posiciona, transmite confiança e mantém sua empresa relevante para quem ainda não comprou mas está considerando. Feito para construir relacionamento com consistência." },
+    { Icon: Lightbulb, title: "Plano para transformar presença em contato", text: "Um diagnóstico honesto do que está faltando e um plano claro para corrigir — sem desperdício de dinheiro em ações que não convertem." },
+    { Icon: Star, title: "Identidade que faz sua empresa parecer mais confiável", text: "Identidade visual, linguagem de marca e posicionamento que justificam o preço que você pratica e atraem o cliente que você quer." },
   ];
   return (
-    <Section id="servicos" className="py-20 md:py-[120px] bg-[#0A0A0A]">
+    <Section id="servicos" className="py-10 md:py-16 bg-[#0A0A0A]">
       <div className="max-w-[1200px] mx-auto px-5 md:px-10">
         <Label>Serviços</Label>
         <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] max-w-[640px] mb-6">
-          Tudo que seu negócio precisa para crescer no digital — em um único lugar.
+          Da primeira impressão ao contato no WhatsApp: organizamos sua presença online para gerar mais oportunidades.
         </h2>
-        <p className="reveal font-[Inter] text-[17px] text-[#9CA3AF] max-w-[520px] mb-16 leading-[1.6]">
+        <p className="reveal font-[Inter] text-[17px] text-[#9CA3AF] max-w-[520px] mb-8 leading-[1.6]">
           Não precisar coordenar quatro fornecedores diferentes é uma das formas mais eficientes de economizar
           tempo e dinheiro.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8">
           {services.map(({ Icon, title, text }) => (
             <div
               key={title}
-              className="reveal bg-[#141414] border border-[rgba(255,255,255,0.06)] rounded-[16px] p-8 flex flex-col gap-4 hover:border-[rgba(170,255,0,0.20)] hover:shadow-[0_8px_32px_rgba(170,255,0,0.06)] hover:scale-[1.01] transition-all duration-200"
+              className="reveal bg-[#141414] border border-[rgba(255,255,255,0.06)] rounded-[16px] p-6 md:p-8 flex flex-col gap-4 hover:border-[rgba(170,255,0,0.20)] hover:shadow-[0_8px_32px_rgba(170,255,0,0.06)] hover:scale-[1.01] transition-all duration-200"
             >
               <Icon size={32} strokeWidth={1.5} color="#AAFF00" />
               <h3 className="font-[Space_Grotesk] font-medium text-[20px] text-white">{title}</h3>
@@ -367,7 +420,7 @@ function Servicos() {
           ))}
         </div>
 
-        <div className="reveal border border-[rgba(170,255,0,0.20)] bg-[rgba(170,255,0,0.03)] rounded-[16px] p-10 text-center max-w-[600px] mx-auto">
+        <div className="reveal border border-[rgba(170,255,0,0.20)] bg-[rgba(170,255,0,0.03)] rounded-[16px] p-7 text-center max-w-[600px] mx-auto">
           <p className="font-[Space_Grotesk] font-medium text-[22px] text-white mb-3">
             Não sabe por onde começar?
           </p>
@@ -391,85 +444,32 @@ function Servicos() {
 function Diferenciais() {
   const items = [
     { title: "Estratégia não é extra. É o ponto de partida.", text: "Enquanto a maioria começa pelo template, começamos pelo diagnóstico. Nenhuma execução acontece sem entender o que vai gerar resultado para aquele negócio específico." },
-    { title: "Você vê antes de pagar.", text: "Nossa abordagem de prospecção ativa significa que, em muitos casos, você recebe um protótipo real do seu site antes mesmo de assinar qualquer contrato." },
-    { title: "Não vendemos serviços. Resolvemos problemas de crescimento.", text: "Nosso foco não é entregar um site ou uma campanha. É resolver a equação: como sua empresa consegue mais clientes." },
+    { title: "Antes de decidir, você enxerga o caminho.", text: "Em muitos casos, mostramos como sua empresa pode se apresentar melhor online antes de você tomar qualquer decisão. Você decide com clareza — não com base em promessas." },
+    { title: "Não entregamos serviço. Ajudamos sua empresa a ser escolhida.", text: "Nosso foco não é entregar um site ou uma campanha. É fazer sua empresa parecer mais profissional, confiável e fácil de escolher para quem está pesquisando online." },
     { title: "Comunicação direta. Sem fila de chamado.", text: "Você tem um ponto de contato real. Não abre chamado para saber o andamento do projeto. Não aguarda 3 dias úteis para uma resposta simples." },
     { title: "O próprio site é nossa prova.", text: "O site que você está visitando foi criado com a mesma metodologia, a mesma estratégia e o mesmo cuidado que aplicamos em cada cliente." },
   ];
   return (
-    <Section id="diferenciais" className="py-20 md:py-[120px] bg-[#0F0F0F]">
-      <div className="max-w-[1200px] mx-auto px-5 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        <div>
+    <Section id="diferenciais" className="py-10 md:py-16 bg-[#0F0F0F]">
+      <div className="max-w-[1200px] mx-auto px-5 md:px-10">
+        <div className="max-w-[760px] mb-6">
           <Label>Por que a Noise Labs</Label>
-          <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] mb-8">
+          <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em]">
             O que separa a Noise Labs de 90% das agências.
           </h2>
-          <div className="flex flex-col divide-y divide-[rgba(255,255,255,0.04)]">
-            {items.map((it) => (
-              <div key={it.title} className="reveal flex items-start gap-4 py-7">
-                <div className="w-5 h-5 rounded-full bg-[rgba(170,255,0,0.15)] flex items-center justify-center mt-0.5 flex-shrink-0">
-                  <Check size={12} strokeWidth={2.5} color="#AAFF00" />
-                </div>
-                <div>
-                  <h3 className="font-[Space_Grotesk] font-medium text-[17px] text-white mb-1">{it.title}</h3>
-                  <p className="font-[Inter] text-[14px] text-[#6B7280] leading-[1.6]">{it.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
-
-        <div className="hidden lg:block reveal">
-          <div className="border border-[rgba(255,255,255,0.06)] rounded-[20px] bg-[#141414] p-8 aspect-square relative overflow-hidden">
-            {/* Decorative grid */}
-            <div
-              className="absolute inset-0 opacity-50"
-              style={{
-                backgroundImage:
-                  "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-                backgroundSize: "24px 24px",
-              }}
-            />
-            <div className="relative h-full flex flex-col gap-4">
-              <div className="flex gap-2 items-center">
-                <div className="w-2 h-2 rounded-full bg-[#AAFF00]" />
-                <div className="h-2 w-24 bg-[rgba(255,255,255,0.08)] rounded-full" />
-                <div className="ml-auto h-2 w-2 rounded-full bg-[rgba(255,255,255,0.15)]" />
-                <div className="h-2 w-2 rounded-full bg-[rgba(255,255,255,0.15)]" />
+        <div className="flex flex-col divide-y divide-[rgba(255,255,255,0.05)]">
+          {items.map((it) => (
+            <div key={it.title} className="reveal group flex items-start gap-6 py-5 md:py-6 hover:bg-[rgba(170,255,0,0.015)] -mx-4 px-4 transition-colors duration-200 rounded-[8px]">
+              <div className="w-5 h-5 rounded-full bg-[rgba(170,255,0,0.12)] flex items-center justify-center mt-1 flex-shrink-0 group-hover:bg-[rgba(170,255,0,0.22)] transition-colors duration-200">
+                <Check size={12} strokeWidth={2.5} color="#AAFF00" />
               </div>
-              <div className="h-px bg-[rgba(255,255,255,0.06)]" />
-              <div className="flex-1 grid grid-cols-3 gap-3">
-                <div className="col-span-2 bg-[rgba(170,255,0,0.06)] border border-[rgba(170,255,0,0.20)] rounded-[10px] p-4 flex flex-col justify-between">
-                  <div className="space-y-2">
-                    <div className="h-2 w-16 bg-[rgba(170,255,0,0.4)] rounded-full" />
-                    <div className="h-3 w-32 bg-[rgba(255,255,255,0.15)] rounded-full" />
-                    <div className="h-3 w-24 bg-[rgba(255,255,255,0.10)] rounded-full" />
-                  </div>
-                  <div className="h-6 w-20 bg-[#AAFF00] rounded-md" />
-                </div>
-                <div className="space-y-3">
-                  <div className="bg-[rgba(255,255,255,0.04)] rounded-[8px] p-3 space-y-2">
-                    <div className="h-1.5 w-12 bg-[rgba(255,255,255,0.15)] rounded-full" />
-                    <div className="h-3 w-8 bg-[#AAFF00] rounded-full" />
-                  </div>
-                  <div className="bg-[rgba(255,255,255,0.04)] rounded-[8px] p-3 space-y-2">
-                    <div className="h-1.5 w-10 bg-[rgba(255,255,255,0.15)] rounded-full" />
-                    <div className="h-3 w-12 bg-[rgba(255,255,255,0.30)] rounded-full" />
-                  </div>
-                </div>
-              </div>
-              <div className="grid grid-cols-4 gap-3">
-                {[40, 65, 80, 55].map((h, i) => (
-                  <div key={i} className="bg-[rgba(255,255,255,0.04)] rounded-[6px] p-2 flex items-end h-20">
-                    <div
-                      className={`w-full rounded ${i === 2 ? "bg-[#AAFF00]" : "bg-[rgba(255,255,255,0.15)]"}`}
-                      style={{ height: `${h}%` }}
-                    />
-                  </div>
-                ))}
+              <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-2 md:gap-12 w-full items-start">
+                <h3 className="font-[Space_Grotesk] font-medium text-[17px] md:text-[19px] text-white leading-[1.35]">{it.title}</h3>
+                <p className="font-[Inter] text-[14px] md:text-[15px] text-[#6B7280] leading-[1.65]">{it.text}</p>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </Section>
@@ -478,25 +478,21 @@ function Diferenciais() {
 
 function Autoridade() {
   return (
-    <Section className="py-20 md:py-[120px] bg-gradient-to-b from-[#0A0A0A] to-[#111111]">
-      <div className="max-w-[720px] mx-auto px-5 md:px-10 text-center">
-        <Label>Perspectiva</Label>
-        <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[28px] md:text-[42px] leading-[1.1] tracking-[-0.02em] mb-6">
-          A diferença entre crescer e estagnar está em quem cuida da sua presença digital.
-        </h2>
-        <p className="reveal font-[Inter] text-[17px] text-[#9CA3AF] leading-[1.65] mb-6">
-          Empresas que crescem no digital não crescem por acidente. Elas têm uma presença construída
-          estrategicamente: site que transmite profissionalismo, anúncios que atingem as pessoas certas, e uma
-          experiência online que converte visitante em cliente.
-        </p>
-        <p className="reveal font-[Inter] text-[17px] text-[#9CA3AF] leading-[1.65] mb-10">
-          Essa estrutura não acontece com template genérico. Não acontece com agência que executa sem pensar.
-          Acontece com método.
-        </p>
-        <p className="reveal font-[Space_Grotesk] font-medium text-[20px] text-white leading-[1.4] border-l-2 border-[#AAFF00] pl-6 text-left max-w-[560px] mx-auto">
-          Se sua empresa não aparece, não transmite confiança ou não facilita o contato — você não está
-          competindo. Está esperando.
-        </p>
+    <Section className="py-8 md:py-12 bg-gradient-to-b from-[#0A0A0A] to-[#111111]">
+      <div className="max-w-[680px] mx-auto px-5 md:px-10">
+        <div className="reveal border-l-2 border-[rgba(170,255,0,0.40)] pl-8 py-2">
+          <p className="font-[Space_Grotesk] font-medium text-[20px] md:text-[24px] text-white leading-[1.4] mb-4">
+            Se sua empresa não aparece, não transmite confiança ou não facilita o contato — você não está
+            competindo. Está esperando.
+          </p>
+          <p className="reveal font-[Inter] text-[15px] text-[#6B7280] leading-[1.65]">
+            Empresas que crescem no digital têm uma presença construída estrategicamente. Não acontece com
+            template genérico. Não acontece com agência que executa sem pensar. Acontece com método.
+          </p>
+          <p className="reveal mt-5 font-[Inter] text-[14px] text-[#4A4A4A] leading-[1.6] italic">
+            Se sua empresa já é boa no atendimento, o digital precisa transmitir isso antes do primeiro contato.
+          </p>
+        </div>
       </div>
     </Section>
   );
@@ -539,16 +535,30 @@ function FAQ() {
     { q: "Como funciona o investimento? É projeto único ou mensalidade?", a: "Depende do que faz mais sentido para o seu momento. Criação de site ou landing page é projeto com escopo definido. Gestão de tráfego pago e social media são serviços contínuos. Trabalhamos com modelos que se encaixam na realidade do seu negócio — e isso é definido depois do diagnóstico, não antes." },
   ];
   return (
-    <Section id="faq" className="py-20 md:py-[120px] bg-[#111111]">
+    <Section id="faq" className="py-10 md:py-16 bg-[#111111]">
       <div className="max-w-[720px] mx-auto px-5 md:px-10">
         <Label>FAQ</Label>
-        <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] mb-16">
+        <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] mb-8">
           Perguntas de quem pensa sério sobre crescimento.
         </h2>
         <div className="flex flex-col divide-y divide-[rgba(255,255,255,0.06)]">
           {faqs.map((f) => (
             <FAQItem key={f.q} q={f.q} a={f.a} />
           ))}
+        </div>
+
+        <div className="reveal mt-12 pt-8 border-t border-[rgba(255,255,255,0.05)] text-center">
+          <p className="font-[Inter] text-[14px] text-[#6B7280] mb-4">
+            Ficou com alguma dúvida? A conversa mais rápida é pelo WhatsApp.
+          </p>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-[Space_Grotesk] text-[14px] font-medium text-[#AAFF00] hover:text-[#C5FF3A] transition-colors duration-150"
+          >
+            Chamar no WhatsApp →
+          </a>
         </div>
       </div>
     </Section>
@@ -557,11 +567,15 @@ function FAQ() {
 
 function CTAFinal() {
   return (
-    <Section id="contato" className="py-24 md:py-[160px] bg-[#0A0A0A] cta-bg relative overflow-hidden">
-      <div className="max-w-[680px] mx-auto px-5 md:px-10 text-center relative z-10">
+    <Section id="contato" className="py-14 md:py-20 bg-[#0A0A0A] cta-bg relative overflow-hidden">
+      {/* Campo de noise interativo — versão soft para não competir com o CTA */}
+      <InteractiveNoiseBackground intensity="soft" />
+      {/* Glow radial de reforço — acima do noise, abaixo do conteúdo */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(170,255,0,0.07)_0%,transparent_55%)] pointer-events-none" />
+      <div className="max-w-[720px] mx-auto px-5 md:px-10 text-center relative z-10">
         <Label>Pronto para começar</Label>
-        <h2 className="reveal font-[Space_Grotesk] font-bold text-[32px] md:text-[52px] leading-[1.05] tracking-[-0.02em] mb-6">
-          Pronto para parar de <span className="text-[#9CA3AF]">perder clientes</span> para quem{" "}
+        <h2 className="reveal font-[Space_Grotesk] font-bold text-[36px] md:text-[56px] lg:text-[64px] leading-[1.04] tracking-[-0.025em] mb-6">
+          Pronto para parar de <span className="text-[#6B7280]">perder clientes</span> para quem{" "}
           <span className="text-white">investiu no digital</span>?
         </h2>
         <p className="reveal font-[Inter] text-[18px] text-[#9CA3AF] leading-[1.6] mb-12">
@@ -594,8 +608,14 @@ function CTAFinal() {
 
 function Footer() {
   return (
-    <footer className="bg-[#0A0A0A] border-t border-[rgba(255,255,255,0.06)] py-16">
-      <div className="max-w-[1200px] mx-auto px-5 md:px-10">
+    <footer className="relative bg-[#0A0A0A] border-t border-[rgba(255,255,255,0.05)] py-16 overflow-hidden">
+      {/* Monograma ghost */}
+      <div className="absolute bottom-0 right-0 overflow-hidden pointer-events-none select-none">
+        <span className="block font-[Space_Grotesk] font-bold leading-none tracking-[-0.04em] text-[rgba(255,255,255,0.016)] translate-x-[8%] translate-y-[15%]" style={{ fontSize: "clamp(120px, 20vw, 260px)" }}>
+          NL
+        </span>
+      </div>
+      <div className="relative z-10 max-w-[1200px] mx-auto px-5 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
             <Logo />
@@ -645,11 +665,12 @@ function Footer() {
           <p className="font-[Inter] text-[13px] text-[#6B7280]">
             © 2025 Noise Labs. Marketing digital estratégico para negócios que querem crescer.
           </p>
+          {/* TODO: substituir href pelos perfis reais antes de publicar */}
           <div className="flex gap-4">
-            <a href="#" aria-label="Instagram" className="text-[#6B7280] hover:text-[#AAFF00] transition-colors">
+            <a href="https://instagram.com/noiselabs" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Noise Labs" className="text-[#6B7280] hover:text-[#AAFF00] transition-colors">
               <Instagram size={18} />
             </a>
-            <a href="#" aria-label="LinkedIn" className="text-[#6B7280] hover:text-[#AAFF00] transition-colors">
+            <a href="https://linkedin.com/company/noiselabs" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn da Noise Labs" className="text-[#6B7280] hover:text-[#AAFF00] transition-colors">
               <Linkedin size={18} />
             </a>
           </div>
