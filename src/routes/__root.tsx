@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -72,20 +73,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Noise Labs Digital: A premium digital marketing agency website designed for high conversion and lead generation." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Noise Labs Digital: A premium digital marketing agency website designed for high conversion and lead generation." },
+      { title: "Noise Labs — Marketing Digital que Gera Clientes" },
+      { name: "description", content: "A Noise Labs transforma empresas locais em marcas que geram clientes reais — com estratégia antes de execução, design premium e foco exclusivo em resultado comercial." },
+      { name: "author", content: "Noise Labs" },
+      { property: "og:title", content: "Noise Labs — Marketing Digital que Gera Clientes" },
+      { property: "og:description", content: "A Noise Labs transforma empresas locais em marcas que geram clientes reais — com estratégia antes de execução, design premium e foco exclusivo em resultado comercial." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Noise Labs Digital: A premium digital marketing agency website designed for high conversion and lead generation." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/02f15a86-589f-452f-8495-010093ba1f39/id-preview-1974b182--b47bcfac-b80b-4f4d-9f54-8d77bb138013.lovable.app-1778645883544.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/02f15a86-589f-452f-8495-010093ba1f39/id-preview-1974b182--b47bcfac-b80b-4f4d-9f54-8d77bb138013.lovable.app-1778645883544.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Noise Labs — Marketing Digital que Gera Clientes" },
+      { name: "twitter:description", content: "A Noise Labs transforma empresas locais em marcas que geram clientes reais — com estratégia antes de execução, design premium e foco exclusivo em resultado comercial." },
     ],
     links: [
+      {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        href: appCss,
+        as: "style",
+      },
       {
         rel: "stylesheet",
         href: appCss,
@@ -100,7 +112,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
@@ -112,8 +124,18 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+const GOOGLE_FONTS_URL =
+  "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap";
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = GOOGLE_FONTS_URL;
+    document.head.appendChild(link);
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
