@@ -227,14 +227,14 @@ function Problema() {
     },
   ];
   return (
-    <Section id="problema" className="py-10 md:py-16 bg-[#0F0F0F]">
+    <Section id="problema" className="py-6 md:py-8 bg-[#0F0F0F]">
       <div className="max-w-[1200px] mx-auto px-5 md:px-10">
         <Label>O Problema</Label>
-        <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] max-w-[680px] mb-6">
+        <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[22px] md:text-[30px] leading-[1.1] tracking-[-0.02em] max-w-[680px] mb-6">
           Todo dia sem presença digital é um cliente que vai para o{" "}
           <span className="text-[#AAFF00]">concorrente</span>.
         </h2>
-        <p className="reveal font-[Inter] text-[18px] text-[#9CA3AF] max-w-[560px] mb-8 leading-[1.6]">
+        <p className="reveal font-[Inter] text-[14px] text-[#9CA3AF] max-w-[560px] mb-5 leading-[1.6]">
           Você não perde clientes porque seu serviço é pior. Você perde porque, na hora em que eles pesquisam,
           seu concorrente aparece — e você não.
         </p>
@@ -243,9 +243,9 @@ function Problema() {
           {cards.map((c) => (
             <div
               key={c.quote}
-              className="reveal bg-[#161616] border border-[rgba(255,255,255,0.06)] rounded-[12px] p-6 md:p-8 hover:border-[rgba(170,255,0,0.20)] hover:shadow-[0_8px_32px_rgba(170,255,0,0.06)] hover:scale-[1.01] transition-all duration-200"
+              className="reveal bg-[#161616] border border-[rgba(255,255,255,0.06)] rounded-[10px] p-4 hover:border-[rgba(170,255,0,0.20)] hover:shadow-[0_8px_32px_rgba(170,255,0,0.06)] hover:scale-[1.01] transition-all duration-200"
             >
-              <div className="w-2 h-2 rounded-full bg-[#AAFF00] mb-6" />
+              <div className="w-2 h-2 rounded-full bg-[#AAFF00] mb-3" />
               <p className="font-[Space_Grotesk] font-medium text-[16px] text-white mb-3 leading-[1.45]">
                 {c.quote}
               </p>
@@ -254,7 +254,7 @@ function Problema() {
           ))}
         </div>
 
-        <p className="reveal font-[Inter] text-[18px] text-[#AAAAAA] text-center max-w-[600px] mx-auto leading-[1.6]">
+        <p className="reveal font-[Inter] text-[13px] text-[#AAAAAA] text-center max-w-[600px] mx-auto leading-[1.6]">
           A pergunta não é se você precisa de presença digital. É quanto está custando não ter uma que funcione.
         </p>
       </div>
@@ -281,14 +281,14 @@ function Solucao() {
     },
   ];
   return (
-    <Section id="solucao" className="py-10 md:py-16 bg-[#0A0A0A] border-t border-[rgba(255,255,255,0.04)]">
+    <Section id="solucao" className="py-6 md:py-8 bg-[#0A0A0A] border-t border-[rgba(255,255,255,0.04)]">
       <div className="max-w-[1200px] mx-auto px-5 md:px-10">
         <Label>A Solução</Label>
-        <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] max-w-[760px] mb-6">
+        <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[22px] md:text-[30px] leading-[1.1] tracking-[-0.02em] max-w-[760px] mb-6">
           Não entregamos apenas uma página bonita. Construímos uma presença online pensada para fazer sua empresa{" "}
           <span className="text-[#AAFF00]">ser escolhida</span>.
         </h2>
-        <p className="reveal font-[Inter] text-[18px] text-[#9CA3AF] max-w-[640px] mb-8 leading-[1.6]">
+        <p className="reveal font-[Inter] text-[14px] text-[#9CA3AF] max-w-[640px] mb-5 leading-[1.6]">
           A maioria das agências começa pela execução: pega o template, monta o site, publica e cobra. A Noise
           Labs começa pela estratégia: entende o seu negócio, o seu cliente, o que bloqueia a conversão — e só
           então executa.
@@ -296,9 +296,9 @@ function Solucao() {
 
         <div className="reveal flex flex-col md:flex-row gap-px bg-[rgba(255,255,255,0.04)] rounded-[16px] overflow-hidden">
           {pilares.map(({ Icon, title, text }) => (
-            <div key={title} className="bg-[#0A0A0A] flex-1 p-7 flex flex-col gap-3">
-              <Icon size={32} strokeWidth={1.5} color="#AAFF00" />
-              <h3 className="font-[Space_Grotesk] font-medium text-[20px] text-white">{title}</h3>
+            <div key={title} className="bg-[#0A0A0A] flex-1 p-5 flex flex-col gap-2">
+              <Icon size={20} strokeWidth={1.5} color="#AAFF00" />
+              <h3 className="font-[Space_Grotesk] font-medium text-[16px] text-white">{title}</h3>
               <p className="font-[Inter] text-[15px] text-[#9CA3AF] leading-[1.65]">{text}</p>
             </div>
           ))}
@@ -343,20 +343,20 @@ function ComoFunciona() {
     },
   ];
   return (
-    <Section id="como-funciona" className="py-10 md:py-16 bg-[#111111]">
+    <Section id="como-funciona" className="py-6 md:py-8 bg-[#111111]">
       <div className="max-w-[1200px] mx-auto px-5 md:px-10">
         <Label>Processo</Label>
-        <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] max-w-[720px] mb-8">
+        <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[22px] md:text-[30px] leading-[1.1] tracking-[-0.02em] max-w-[720px] mb-8">
           Como transformamos a presença da sua empresa em contato real.
         </h2>
 
         <div className="flex flex-col md:flex-row items-stretch gap-0 relative">
           {steps.map((s, i) => (
-            <div key={s.n} className="flex-1 p-6 md:p-8 reveal relative">
+            <div key={s.n} className="flex-1 p-4 reveal relative">
               <div className="font-[Space_Mono] text-[48px] text-[#AAFF00] opacity-30 leading-none mb-3">
                 {s.n}
               </div>
-              <h3 className="font-[Space_Grotesk] font-medium text-[20px] text-white mb-2">{s.title}</h3>
+              <h3 className="font-[Space_Grotesk] font-medium text-[16px] text-white mb-2">{s.title}</h3>
               <p className="font-[Inter] text-[14px] text-[#6B7280] leading-[1.6]">{s.text}</p>
               {i < steps.length - 1 && (
                 <>
@@ -396,13 +396,13 @@ function Servicos() {
     { Icon: Star, title: "Identidade que faz sua empresa parecer mais confiável", text: "Identidade visual, linguagem de marca e posicionamento que justificam o preço que você pratica e atraem o cliente que você quer." },
   ];
   return (
-    <Section id="servicos" className="py-10 md:py-16 bg-[#0A0A0A]">
+    <Section id="servicos" className="py-6 md:py-8 bg-[#0A0A0A]">
       <div className="max-w-[1200px] mx-auto px-5 md:px-10">
         <Label>Serviços</Label>
-        <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] max-w-[640px] mb-6">
+        <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[22px] md:text-[30px] leading-[1.1] tracking-[-0.02em] max-w-[640px] mb-6">
           Da primeira impressão ao contato no WhatsApp: organizamos sua presença online para gerar mais oportunidades.
         </h2>
-        <p className="reveal font-[Inter] text-[17px] text-[#9CA3AF] max-w-[520px] mb-8 leading-[1.6]">
+        <p className="reveal font-[Inter] text-[14px] text-[#9CA3AF] max-w-[520px] mb-5 leading-[1.6]">
           Não precisar coordenar quatro fornecedores diferentes é uma das formas mais eficientes de economizar
           tempo e dinheiro.
         </p>
@@ -411,16 +411,16 @@ function Servicos() {
           {services.map(({ Icon, title, text }) => (
             <div
               key={title}
-              className="reveal bg-[#141414] border border-[rgba(255,255,255,0.06)] rounded-[16px] p-6 md:p-8 flex flex-col gap-4 hover:border-[rgba(170,255,0,0.20)] hover:shadow-[0_8px_32px_rgba(170,255,0,0.06)] hover:scale-[1.01] transition-all duration-200"
+              className="reveal bg-[#141414] border border-[rgba(255,255,255,0.06)] rounded-[10px] p-4 flex flex-col gap-3 hover:border-[rgba(170,255,0,0.20)] hover:shadow-[0_8px_32px_rgba(170,255,0,0.06)] hover:scale-[1.01] transition-all duration-200"
             >
-              <Icon size={32} strokeWidth={1.5} color="#AAFF00" />
-              <h3 className="font-[Space_Grotesk] font-medium text-[20px] text-white">{title}</h3>
+              <Icon size={20} strokeWidth={1.5} color="#AAFF00" />
+              <h3 className="font-[Space_Grotesk] font-medium text-[16px] text-white">{title}</h3>
               <p className="font-[Inter] text-[14px] text-[#9CA3AF] leading-[1.65]">{text}</p>
             </div>
           ))}
         </div>
 
-        <div className="reveal border border-[rgba(170,255,0,0.20)] bg-[rgba(170,255,0,0.03)] rounded-[16px] p-7 text-center max-w-[600px] mx-auto">
+        <div className="reveal border border-[rgba(170,255,0,0.20)] bg-[rgba(170,255,0,0.03)] rounded-[12px] p-5 text-center max-w-[600px] mx-auto">
           <p className="font-[Space_Grotesk] font-medium text-[22px] text-white mb-3">
             Não sabe por onde começar?
           </p>
@@ -450,17 +450,17 @@ function Diferenciais() {
     { title: "O próprio site é nossa prova.", text: "O site que você está visitando foi criado com a mesma metodologia, a mesma estratégia e o mesmo cuidado que aplicamos em cada cliente." },
   ];
   return (
-    <Section id="diferenciais" className="py-10 md:py-16 bg-[#0F0F0F]">
+    <Section id="diferenciais" className="py-6 md:py-8 bg-[#0F0F0F]">
       <div className="max-w-[1200px] mx-auto px-5 md:px-10">
         <div className="max-w-[760px] mb-6">
           <Label>Por que a Noise Labs</Label>
-          <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em]">
+          <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[22px] md:text-[30px] leading-[1.1] tracking-[-0.02em]">
             O que separa a Noise Labs de 90% das agências.
           </h2>
         </div>
         <div className="flex flex-col divide-y divide-[rgba(255,255,255,0.05)]">
           {items.map((it) => (
-            <div key={it.title} className="reveal group flex items-start gap-6 py-5 md:py-6 hover:bg-[rgba(170,255,0,0.015)] -mx-4 px-4 transition-colors duration-200 rounded-[8px]">
+            <div key={it.title} className="reveal group flex items-start gap-6 py-3 hover:bg-[rgba(170,255,0,0.015)] -mx-4 px-4 transition-colors duration-200 rounded-[8px]">
               <div className="w-5 h-5 rounded-full bg-[rgba(170,255,0,0.12)] flex items-center justify-center mt-1 flex-shrink-0 group-hover:bg-[rgba(170,255,0,0.22)] transition-colors duration-200">
                 <Check size={12} strokeWidth={2.5} color="#AAFF00" />
               </div>
@@ -478,7 +478,7 @@ function Diferenciais() {
 
 function Autoridade() {
   return (
-    <Section className="py-8 md:py-12 bg-gradient-to-b from-[#0A0A0A] to-[#111111]">
+    <Section className="py-5 md:py-7 bg-gradient-to-b from-[#0A0A0A] to-[#111111]">
       <div className="max-w-[680px] mx-auto px-5 md:px-10">
         <div className="reveal border-l-2 border-[rgba(170,255,0,0.40)] pl-8 py-2">
           <p className="font-[Space_Grotesk] font-medium text-[20px] md:text-[24px] text-white leading-[1.4] mb-4">
@@ -505,7 +505,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex justify-between items-center w-full py-6 text-left gap-6"
+        className="flex justify-between items-center w-full py-3 text-left gap-4"
         aria-expanded={open}
       >
         <span className="font-[Space_Grotesk] font-medium text-[16px] md:text-[17px] text-white">{q}</span>
@@ -535,10 +535,10 @@ function FAQ() {
     { q: "Como funciona o investimento? É projeto único ou mensalidade?", a: "Depende do que faz mais sentido para o seu momento. Criação de site ou landing page é projeto com escopo definido. Gestão de tráfego pago e social media são serviços contínuos. Trabalhamos com modelos que se encaixam na realidade do seu negócio — e isso é definido depois do diagnóstico, não antes." },
   ];
   return (
-    <Section id="faq" className="py-10 md:py-16 bg-[#111111]">
+    <Section id="faq" className="py-6 md:py-8 bg-[#111111]">
       <div className="max-w-[720px] mx-auto px-5 md:px-10">
         <Label>FAQ</Label>
-        <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[32px] md:text-[48px] leading-[1.05] tracking-[-0.02em] mb-8">
+        <h2 className="reveal font-[Space_Grotesk] font-bold text-white text-[22px] md:text-[30px] leading-[1.1] tracking-[-0.02em] mb-8">
           Perguntas de quem pensa sério sobre crescimento.
         </h2>
         <div className="flex flex-col divide-y divide-[rgba(255,255,255,0.06)]">
@@ -567,14 +567,14 @@ function FAQ() {
 
 function CTAFinal() {
   return (
-    <Section id="contato" className="py-14 md:py-20 bg-[#0A0A0A] cta-bg relative overflow-hidden">
+    <Section id="contato" className="py-10 md:py-14 bg-[#0A0A0A] cta-bg relative overflow-hidden">
       {/* Campo de noise interativo — versão soft para não competir com o CTA */}
       <InteractiveNoiseBackground intensity="soft" />
       {/* Glow radial de reforço — acima do noise, abaixo do conteúdo */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(170,255,0,0.07)_0%,transparent_55%)] pointer-events-none" />
       <div className="max-w-[720px] mx-auto px-5 md:px-10 text-center relative z-10">
         <Label>Pronto para começar</Label>
-        <h2 className="reveal font-[Space_Grotesk] font-bold text-[36px] md:text-[56px] lg:text-[64px] leading-[1.04] tracking-[-0.025em] mb-6">
+        <h2 className="reveal font-[Space_Grotesk] font-bold text-[26px] md:text-[38px] lg:text-[44px] leading-[1.1] tracking-[-0.025em] mb-5">
           Pronto para parar de <span className="text-[#6B7280]">perder clientes</span> para quem{" "}
           <span className="text-white">investiu no digital</span>?
         </h2>
