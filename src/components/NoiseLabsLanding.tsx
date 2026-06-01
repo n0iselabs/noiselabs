@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef, type ReactNode } from "react";
 import { HeroGlowLayer } from "./hero/HeroGlowLayer";
+import { RadarOpportunity } from "./hero/RadarOpportunity";
 import { InteractiveNoiseBackground } from "./InteractiveNoiseBackground";
 import {
   Map,
@@ -129,18 +130,18 @@ function Hero() {
     <section
       ref={ref}
       id="inicio"
-      className="relative min-h-screen flex items-center overflow-hidden bg-[#0A0A0A] pt-20 pb-10 lg:pt-24 lg:pb-14"
+      className="relative min-h-screen flex items-center overflow-hidden bg-[#0A0A0A] pt-20 pb-6 lg:pt-20 lg:pb-8"
     >
       {/* ── Camadas atmosféricas (absolute, atrás do conteúdo) ── */}
       <HeroGlowLayer />
       <InteractiveNoiseBackground intensity="medium" />
 
-      {/* ── Conteúdo ── */}
+      {/* ── Texto — metade esquerda ── */}
       <div className="relative z-10 max-w-[1200px] mx-auto px-5 md:px-10 w-full">
-        <div className="max-w-[720px]">
+        <div className="md:max-w-[580px]">
 
           {/* Indicador de posicionamento */}
-          <div className="reveal flex items-center gap-3 mb-5">
+          <div className="reveal flex items-center gap-3 mb-3">
             <span className="h-px w-6 bg-[#AAFF00] opacity-60 flex-shrink-0" />
             <span className="text-[11px] font-[Inter] font-medium uppercase tracking-[0.18em] text-[#AAFF00] opacity-75">
               Para empresas que precisam ser escolhidas antes da concorrência
@@ -148,19 +149,19 @@ function Hero() {
           </div>
 
           {/* Headline */}
-          <h1 className="reveal font-[Space_Grotesk] font-bold text-white text-[30px] sm:text-[40px] md:text-[48px] lg:text-[54px] xl:text-[60px] leading-[1.08] tracking-[-0.025em] mb-5">
+          <h1 className="reveal font-[Space_Grotesk] font-bold text-white text-[28px] sm:text-[38px] md:text-[46px] lg:text-[48px] xl:text-[52px] leading-[1.08] tracking-[-0.025em] mb-4">
             Enquanto você lê isso, alguém está procurando exatamente o que você vende — e encontrando seu{" "}
             <span className="text-[#AAFF00]">concorrente</span>.
           </h1>
 
           {/* Subtítulo */}
-          <p className="reveal font-[Inter] text-[15px] md:text-[17px] leading-[1.6] text-[#9CA3AF] max-w-[540px] mb-4">
+          <p className="reveal font-[Inter] text-[15px] md:text-[16px] leading-[1.55] text-[#9CA3AF] max-w-[540px] mb-3">
             A Noise Labs ajuda negócios locais a construir uma presença online mais profissional, confiável
             e preparada para transformar pesquisas e visitas em oportunidades reais de venda.
           </p>
 
           {/* Urgência racional */}
-          <p className="reveal font-[Inter] text-[13px] text-[#5A5A5A] leading-[1.55] max-w-[480px] mb-6">
+          <p className="reveal font-[Inter] text-[13px] text-[#5A5A5A] leading-[1.55] max-w-[480px] mb-4">
             Enquanto sua presença não transmite confiança, parte da decisão do cliente já aconteceu — antes de ele ligar.
           </p>
 
@@ -182,7 +183,7 @@ function Hero() {
             </a>
           </div>
 
-          <p className="reveal text-[12px] text-[#6B7280] font-[Inter] mb-6">
+          <p className="reveal text-[12px] text-[#6B7280] font-[Inter] mb-4">
             Resposta em até 1 hora nos dias úteis. Sem compromisso.
             <span className="ml-3 text-[#AAFF00]/60">→</span>
             <span className="ml-1 italic">Antes de decidir, você enxerga o caminho.</span>
@@ -200,12 +201,13 @@ function Hero() {
             ))}
           </div>
 
-          {/* Localização */}
-          <p className="reveal mt-4 text-[11px] font-[Inter] text-[#3E3E3E] uppercase tracking-[0.13em]">
-            Atendemos negócios locais em São Paulo e região.
-          </p>
 
         </div>
+      </div>
+
+      {/* ── Radar — absolute na metade direita, centrado pela altura da section ── */}
+      <div className="hidden md:flex absolute inset-y-0 right-0 w-1/2 items-center justify-center z-10 pointer-events-none select-none px-6 lg:px-10">
+        <RadarOpportunity />
       </div>
     </section>
   );
