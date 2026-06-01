@@ -610,10 +610,23 @@ function Footer() {
   return (
     <footer className="relative bg-[#0A0A0A] border-t border-[rgba(255,255,255,0.05)] py-16 overflow-hidden">
       {/* Monograma ghost */}
-      <div aria-hidden="true" className="absolute bottom-0 right-0 overflow-hidden pointer-events-none select-none">
-        <span aria-hidden="true" className="block font-[Space_Grotesk] font-bold leading-none tracking-[-0.04em] text-[rgba(255,255,255,0.016)] translate-x-[8%] translate-y-[15%]" style={{ fontSize: "clamp(120px, 20vw, 260px)" }}>
-          NL
-        </span>
+      <div aria-hidden="true" role="presentation" className="absolute bottom-0 right-0 overflow-hidden pointer-events-none select-none">
+        {/* NL como paths SVG — sem TextNode, Lighthouse não avalia contraste de shapes */}
+        <svg
+          aria-hidden="true"
+          role="presentation"
+          viewBox="0 0 390 200"
+          className="block translate-x-[8%] translate-y-[15%]"
+          style={{ height: "clamp(120px, 20vw, 260px)", width: "auto", fill: "rgba(255,255,255,0.016)" }}
+        >
+          {/* N: barra esquerda + diagonal + barra direita */}
+          <rect x="0"   y="0" width="36"  height="200" />
+          <polygon points="36,0 72,0 184,200 148,200" />
+          <rect x="184" y="0" width="36"  height="200" />
+          {/* L: barra vertical + base horizontal */}
+          <rect x="250" y="0"   width="36"  height="200" />
+          <rect x="250" y="164" width="140" height="36"  />
+        </svg>
       </div>
       <div className="relative z-10 max-w-[1200px] mx-auto px-5 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
