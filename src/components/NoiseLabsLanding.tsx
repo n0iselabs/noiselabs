@@ -610,7 +610,7 @@ function Footer() {
   return (
     <footer className="relative bg-[#0A0A0A] border-t border-[rgba(255,255,255,0.05)] py-16 overflow-hidden">
       {/* Monograma ghost */}
-      <div className="absolute bottom-0 right-0 overflow-hidden pointer-events-none select-none">
+      <div aria-hidden="true" className="absolute bottom-0 right-0 overflow-hidden pointer-events-none select-none">
         <span className="block font-[Space_Grotesk] font-bold leading-none tracking-[-0.04em] text-[rgba(255,255,255,0.016)] translate-x-[8%] translate-y-[15%]" style={{ fontSize: "clamp(120px, 20vw, 260px)" }}>
           NL
         </span>
@@ -619,10 +619,10 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
             <Logo />
-            <p className="font-[Inter] text-[14px] text-[#6B7280] mt-3">Presença que gera clientes.</p>
+            <p className="font-[Inter] text-[14px] text-[#9CA3AF] mt-3">Presença que gera clientes.</p>
           </div>
           <div>
-            <h4 className="text-[12px] uppercase tracking-[0.12em] text-[#6B7280] mb-4 font-[Inter] font-medium">
+            <h4 className="text-[12px] uppercase tracking-[0.12em] text-[#A3A3A3] mb-4 font-[Inter] font-medium">
               Navegação
             </h4>
             {[
@@ -641,7 +641,7 @@ function Footer() {
             ))}
           </div>
           <div>
-            <h4 className="text-[12px] uppercase tracking-[0.12em] text-[#6B7280] mb-4 font-[Inter] font-medium">
+            <h4 className="text-[12px] uppercase tracking-[0.12em] text-[#A3A3A3] mb-4 font-[Inter] font-medium">
               Contato
             </h4>
             <a
@@ -662,15 +662,15 @@ function Footer() {
         </div>
 
         <div className="border-t border-[rgba(255,255,255,0.04)] pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <p className="font-[Inter] text-[13px] text-[#6B7280]">
+          <p className="font-[Inter] text-[13px] text-[#9CA3AF]">
             © 2026 Noise Labs. Marketing digital estratégico para negócios que querem crescer.
           </p>
           {/* TODO: substituir href pelos perfis reais antes de publicar */}
           <div className="flex gap-4">
-            <a href="https://instagram.com/noiselabs" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Noise Labs" className="text-[#6B7280] hover:text-[#AAFF00] transition-colors">
+            <a href="https://instagram.com/noiselabs" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Noise Labs" className="text-[#9CA3AF] hover:text-[#AAFF00] transition-colors">
               <Instagram size={18} />
             </a>
-            <a href="https://linkedin.com/company/noiselabs" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn da Noise Labs" className="text-[#6B7280] hover:text-[#AAFF00] transition-colors">
+            <a href="https://linkedin.com/company/noiselabs" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn da Noise Labs" className="text-[#9CA3AF] hover:text-[#AAFF00] transition-colors">
               <Linkedin size={18} />
             </a>
           </div>
