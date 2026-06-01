@@ -611,7 +611,7 @@ function Footer() {
     <footer className="relative bg-[#0A0A0A] border-t border-[rgba(255,255,255,0.05)] py-16 overflow-hidden">
       {/* Monograma ghost */}
       <div aria-hidden="true" className="absolute bottom-0 right-0 overflow-hidden pointer-events-none select-none">
-        <span className="block font-[Space_Grotesk] font-bold leading-none tracking-[-0.04em] text-[rgba(255,255,255,0.016)] translate-x-[8%] translate-y-[15%]" style={{ fontSize: "clamp(120px, 20vw, 260px)" }}>
+        <span aria-hidden="true" className="block font-[Space_Grotesk] font-bold leading-none tracking-[-0.04em] text-[rgba(255,255,255,0.016)] translate-x-[8%] translate-y-[15%]" style={{ fontSize: "clamp(120px, 20vw, 260px)" }}>
           NL
         </span>
       </div>
@@ -622,9 +622,9 @@ function Footer() {
             <p className="font-[Inter] text-[14px] text-[#9CA3AF] mt-3">Presença que gera clientes.</p>
           </div>
           <div>
-            <h4 className="text-[12px] uppercase tracking-[0.12em] text-[#A3A3A3] mb-4 font-[Inter] font-medium">
+            <p className="text-[12px] uppercase tracking-[0.12em] text-[#A3A3A3] mb-4 font-[Inter] font-medium">
               Navegação
-            </h4>
+            </p>
             {[
               { href: "#como-funciona", l: "Como funciona" },
               { href: "#servicos", l: "Serviços" },
@@ -641,9 +641,9 @@ function Footer() {
             ))}
           </div>
           <div>
-            <h4 className="text-[12px] uppercase tracking-[0.12em] text-[#A3A3A3] mb-4 font-[Inter] font-medium">
+            <p className="text-[12px] uppercase tracking-[0.12em] text-[#A3A3A3] mb-4 font-[Inter] font-medium">
               Contato
-            </h4>
+            </p>
             <a
               href="mailto:contato.noiselabs@gmail.com"
               className="text-[14px] text-[#9CA3AF] hover:text-white block mb-2 transition-colors font-[Inter]"
