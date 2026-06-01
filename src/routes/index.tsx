@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import NoiseLabsLanding from "@/components/NoiseLabsLanding";
+import spaceGroteskBoldUrl from "@fontsource/space-grotesk/files/space-grotesk-latin-700-normal.woff2?url";
 
 export const Route = createFileRoute("/")({
   component: NoiseLabsLanding,
@@ -22,11 +23,12 @@ export const Route = createFileRoute("/")({
       { property: "og:site_name", content: "Noise Labs" },
     ],
     links: [
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&family=Space+Mono&display=swap",
+        rel: "preload",
+        href: spaceGroteskBoldUrl,
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
       },
       { rel: "canonical", href: "https://noiselabs.com.br/" },
     ],
