@@ -663,7 +663,7 @@ function Footer() {
 
         <div className="border-t border-[rgba(255,255,255,0.04)] pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <p className="font-[Inter] text-[13px] text-[#6B7280]">
-            © 2025 Noise Labs. Marketing digital estratégico para negócios que querem crescer.
+            © 2026 Noise Labs. Marketing digital estratégico para negócios que querem crescer.
           </p>
           {/* TODO: substituir href pelos perfis reais antes de publicar */}
           <div className="flex gap-4">
@@ -706,9 +706,35 @@ function FloatingWhatsApp() {
   );
 }
 
+const SCHEMA_ORG = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://noiselabs.com.br/#organization",
+  "name": "Noise Labs",
+  "url": "https://noiselabs.com.br",
+  "description": "A Noise Labs cria sites, landing pages e estratégias digitais para empresas locais que querem gerar mais clientes. Presença digital que converte.",
+  "email": "contato.noiselabs@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "addressCountry": "BR",
+  },
+  "areaServed": "São Paulo e região metropolitana",
+  "sameAs": [
+    "https://instagram.com/noiselabs",
+    "https://linkedin.com/company/noiselabs",
+  ],
+};
+
 export default function NoiseLabsLanding() {
   return (
-    <div className="bg-[#0A0A0A] text-white min-h-screen">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_ORG) }}
+      />
+      <div className="bg-[#0A0A0A] text-white min-h-screen">
       <Header />
       <main>
         <Hero />
@@ -724,5 +750,6 @@ export default function NoiseLabsLanding() {
       <Footer />
       <FloatingWhatsApp />
     </div>
+    </>
   );
 }

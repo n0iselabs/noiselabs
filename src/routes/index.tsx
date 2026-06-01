@@ -18,6 +18,8 @@ export const Route = createFileRoute("/")({
           "Transformamos empresas locais em marcas que geram clientes reais. Sites, tráfego pago, estratégia digital.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://noiselabs.com.br/" },
+      { property: "og:site_name", content: "Noise Labs" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -26,6 +28,7 @@ export const Route = createFileRoute("/")({
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&family=Space+Mono&display=swap",
       },
+      { rel: "canonical", href: "https://noiselabs.com.br/" },
     ],
   }),
 });

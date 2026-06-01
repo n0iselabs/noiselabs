@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Noise Labs — Marketing Digital que Gera Clientes" },
       { property: "og:description", content: "A Noise Labs transforma empresas locais em marcas que geram clientes reais — com estratégia antes de execução, design premium e foco exclusivo em resultado comercial." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "Noise Labs — Marketing Digital que Gera Clientes" },
       { name: "twitter:description", content: "A Noise Labs transforma empresas locais em marcas que geram clientes reais — com estratégia antes de execução, design premium e foco exclusivo em resultado comercial." },
     ],
