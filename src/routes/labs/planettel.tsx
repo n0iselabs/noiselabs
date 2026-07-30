@@ -483,11 +483,12 @@ function PlanetTelAuditoria() {
               </div>
               <div className="item">
                 <h3>
-                  Esforço sem alcance <span className="m">1.113 posts · 109 seguidores</span>
+                  Instagram ativo, mas sem função de conversão{" "}
+                  <span className="m">109 posts · 1.114 seguidores</span>
                 </h3>
                 <p>
-                  Um volume enorme de conteúdo no Instagram para uma audiência mínima. É trabalho real que não
-                  está gerando alcance nem retorno.
+                  Audiência real para um provedor regional — não é um problema de alcance. O feed está só
+                  incorporado ao site como conteúdo passivo, sem CTA, verificador de cobertura ou captação de lead.
                 </p>
               </div>
               <div className="item">
