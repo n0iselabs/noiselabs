@@ -1,37 +1,28 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
+import { buildAuditHead } from "@/lib/seo";
 import planettelCss from "./planettel.css?url";
 
 // Apresentação privada de auditoria/proposta para a PlanetTel.
 // Rota isolada, fora do menu principal, noindex — acessível só por link direto.
 export const Route = createFileRoute("/labs/planettel")({
-  head: () => ({
-    meta: [
-      { title: "PlanetTel · Auditoria + Novo Site — Noise Labs" },
-      {
-        name: "description",
-        content: "Apresentação privada de auditoria digital e proposta para a PlanetTel — Noise Labs.",
-      },
-      { name: "robots", content: "noindex, nofollow" },
-      { property: "og:title", content: "PlanetTel · Auditoria + Novo Site — Noise Labs" },
-      {
-        property: "og:description",
-        content: "Apresentação privada de auditoria digital e proposta para a PlanetTel — Noise Labs.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://noiselabs.com.br/labs/planettel" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "PlanetTel · Auditoria + Novo Site — Noise Labs" },
-      {
-        name: "twitter:description",
-        content: "Apresentação privada de auditoria digital e proposta para a PlanetTel — Noise Labs.",
-      },
-    ],
-    links: [
-      { rel: "canonical", href: "https://noiselabs.com.br/labs/planettel" },
-      { rel: "stylesheet", href: planettelCss },
-    ],
-  }),
+  head: () => {
+    const seo = buildAuditHead({
+      path: "/labs/planettel",
+      title: "PlanetTel · Auditoria Digital + Novo Site — Noise Labs",
+      description:
+        "Um material exclusivo da Noise Labs para a diretoria da PlanetTel: onde a marca está hoje, o que descobrimos na auditoria e o site já construído.",
+      ogTitle: "A PlanetTel já vende. Falta o digital vender junto.",
+      ogDescription:
+        "214 avaliações no Google. Zero delas aparecendo no site. Veja o que mais encontramos — e o que já resolvemos.",
+      image: "/og/planettel.jpg",
+      imageAlt: "Noise Labs × PlanetTel — auditoria digital e novo site",
+    });
+    return {
+      meta: seo.meta,
+      links: [...seo.links, { rel: "stylesheet", href: planettelCss }],
+    };
+  },
   component: PlanetTelAuditoria,
 });
 
