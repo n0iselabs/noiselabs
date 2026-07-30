@@ -32,7 +32,8 @@ const CHAIN: Array<[string, string, string, boolean]> = [
   ["03", "Competitivo", "competitivo", false],
   ["04", "Oportunidade", "oportunidade", false],
   ["05", "Site no ar", "construimos", true],
-  ["06", "Próximo passo", "proximo", false],
+  ["06", "Crescimento", "crescimento", false],
+  ["07", "Próximo passo", "proximo", false],
 ];
 
 function PlanetTelAuditoria() {
@@ -673,11 +674,82 @@ function PlanetTelAuditoria() {
           </div>
         </section>
 
-        {/* 06 PRÓXIMO PASSO */}
+        {/* 06 CRESCIMENTO CONTÍNUO */}
+        <section className="sec reveal" id="crescimento">
+          <div className="wrap">
+            <p className="label">
+              <span className="n">06</span> Crescimento contínuo
+            </p>
+            <h2>O site resolve a base. O contato novo depende do que vem depois.</h2>
+            <p className="lede">
+              O que encontramos nesta auditoria — prova social fora do site, concorrência nacional dominando a
+              busca, vitrine sem captação — o novo site resolve na base. Mas site bom não gera contato novo
+              sozinho, todo mês: isso depende de uma operação ativa de aquisição, rodando em paralelo.
+            </p>
+            <div className="callout">
+              <span className="lbl">Leitura</span>
+              No cenário competitivo (03), a Giga+ Fibra e os agregadores dominam a busca por internet nas suas
+              três cidades. O site novo garante que, quando alguém chegar, converta. Fazer mais gente chegar é o
+              próximo problema — e é contínuo, não um projeto que termina.
+            </div>
+            <div className="cards">
+              <div className="card">
+                <h3>
+                  <span className="cdot" />
+                  Busca paga local (Google Ads)
+                </h3>
+                <p>
+                  Aparecer no momento em que alguém pesquisa “internet fibra” nas suas três cidades ou compara
+                  com a Giga+ — sem depender só do tempo que a busca orgânica leva para ranquear.
+                </p>
+              </div>
+              <div className="card">
+                <h3>
+                  <span className="cdot" />
+                  SEO local contínuo
+                </h3>
+                <p>
+                  O site já nasceu preparado — dados estruturados, velocidade, conteúdo por cidade. Ranquear bem
+                  é processo contínuo, não um evento único do lançamento.
+                </p>
+              </div>
+              <div className="card">
+                <h3>
+                  <span className="cdot" />
+                  Prova social viva
+                </h3>
+                <p>
+                  214 avaliações são o ponto de partida, não o teto. Manter esse fluxo entrando — e visível no
+                  site — é operação, não projeto pontual.
+                </p>
+              </div>
+              <div className="card">
+                <h3>
+                  <span className="cdot" />
+                  Acompanhamento mensal
+                </h3>
+                <p>
+                  Medir o que de fato vira contato e ajustar a partir disso. Crescimento previsível vem de
+                  acompanhar dado real, não de supor.
+                </p>
+              </div>
+            </div>
+            <div className="callout">
+              <span className="lbl">Pronto para começar</span>
+              Esta auditoria já mapeou quem disputa a atenção do seu cliente na busca — Giga+ Fibra, GlobalFibra,
+              Vero, Telvia, GlobalNet e os agregadores de comparação — e como essa decisão acontece: rápida, pelo
+              celular, comparando preço e velocidade, checando primeiro se o endereço é atendido. É terreno
+              conhecido, não um ponto de partida do zero — dá para iniciar a operação de aquisição com esse
+              mapeamento em mãos.
+            </div>
+          </div>
+        </section>
+
+        {/* 07 PRÓXIMO PASSO */}
         <section className="sec reveal" id="proximo">
           <div className="wrap">
             <p className="label">
-              <span className="n">06</span> Próximo passo
+              <span className="n">07</span> Próximo passo
             </p>
             <h2>Publicar e colocar para vender</h2>
             <p className="lede">
